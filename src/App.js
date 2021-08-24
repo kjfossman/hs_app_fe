@@ -1,12 +1,22 @@
-import logo from './logo.svg';
 import './App.css';
+import React, { Component } from 'react';
 
-function App() {
+
+
+
+class App extends Component {
+
+  handleClick = () => {
+    console.log('test')
+  }
+
+  render(){
   return (
     <div className="App">
-      Testing
+      <button onClick={this.handleClick}>Login With Google</button>
     </div>
   );
+}
 }
 
 export default App;
