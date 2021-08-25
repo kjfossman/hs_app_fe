@@ -1,17 +1,21 @@
 import './App.css';
 import React, { Component } from 'react';
 import OauthGoogle from './components/OauthGoogle.js';
+import { connect } from 'react-redux';
 
-
-
+import { fetchUsers } from './actions/userActions';
 
 class App extends Component {
 
-
+  componentDidMount() {
+    this.props.fetchUsers()
+  }
 
 
   render(){
+    
   return (
+  
     <div className="App">
       <OauthGoogle />
     </div>
@@ -19,7 +23,20 @@ class App extends Component {
 }
 }
 
-export default App;
+const mapStateToProps = state => {
+  
+  return {
+    users: state.users
+  }
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+  fetchUsers: () => dispatch(fetchUsers()),
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
 
 
 

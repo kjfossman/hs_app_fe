@@ -2,6 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
+
+import userReducer from './reducers/userReducer.js'
+
 import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
@@ -10,15 +13,17 @@ import { createStore, applyMiddleware, combineReducers, compose } from 'redux';
 const devTools = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 
 const rootReducer = combineReducers({
-  
+    users: userReducer,
 })
 
 const store = createStore(rootReducer, compose(applyMiddleware(thunk), devTools))
 
 ReactDOM.render(
+  
   <React.StrictMode>
     <Provider store={store}>
       <div>
+   
         <App store={store}/>
       </div>
 
