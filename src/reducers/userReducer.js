@@ -3,8 +3,11 @@ const userReducer = (state = [], action) => {
         case 'LOADING_USERS':
             return state
 
-        case 'ADD_USERS':
+        case 'SHOW_USERS':
             return action.users
+
+        case 'ADD_USERS':
+            return [action.user, ...state]
 
       default:
         return state;

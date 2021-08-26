@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import GoogleLogin from 'react-google-login'
+import { addUser } from '../actions/userActions';
+import { connect } from 'react-redux';
 
 class OauthGoogle extends Component {
 
     responseGoogle = (response) => {
-        fetch('http://localhost:3000/users')
-        console.log(response.profileObj)
-        console.log(response.profileObj.name)
+        this.props.submitUser(response.profileObj)
       }
 
     render() {
@@ -24,4 +24,12 @@ class OauthGoogle extends Component {
     }
 }
 
-export default OauthGoogle;
+const mapDispatchToProps = dispatch => {
+    return {
+        submitUser: (data) => {
+            dispatch(addUser(data))
+        }
+    }
+}
+
+export default connect(null, mapDispatchToProps)(OauthGoogle);

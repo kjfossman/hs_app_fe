@@ -6,7 +6,31 @@ export const fetchUsers = () => {
     {
         return response.json()
     }).then(responseJSON => {
-        dispatch({type: 'ADD_USERS', users: responseJSON})
+        dispatch({type: 'SHOW_USERS', users: responseJSON})
     })
     }
 }
+
+
+export const addUser = (data) => {
+    debugger
+    return (dispatch) => {
+        fetch("http://localhost:3000/users", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+
+            },
+            body: JSON.stringify({
+                email: data.email,
+                name: data.name,
+                imageUrl: data.imageUrl
+            })
+        })
+        .then(result => result.json())
+        .then(responseJSON => {
+            dispatch({type: 'ADD_USER', user: responseJSON})
+        })
+    }
+}
+

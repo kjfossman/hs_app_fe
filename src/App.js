@@ -11,13 +11,17 @@ class App extends Component {
     this.props.fetchUsers()
   }
 
+  
 
   render(){
-    
+    let users = this.props.users.map(e => <div>{e.email}</div>)
   return (
   
     <div className="App">
       <OauthGoogle />
+      <div>
+        {users}
+      </div>
     </div>
   );
 }
