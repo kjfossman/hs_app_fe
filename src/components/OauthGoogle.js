@@ -3,6 +3,7 @@ import GoogleLogin from 'react-google-login'
 import { addUser } from '../actions/userActions';
 import { connect } from 'react-redux';
 
+
 class OauthGoogle extends Component {
 
     responseGoogle = (response) => {
@@ -13,7 +14,7 @@ class OauthGoogle extends Component {
         return (
             <div>
                  <GoogleLogin
-                    clientId={this.props.Google_Id}
+                    clientId={this.props.Google_id}
                     buttonText="Login"
                     onSuccess={this.responseGoogle}
                     onFailure={this.responseGoogle}

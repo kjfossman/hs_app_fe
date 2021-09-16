@@ -6,22 +6,37 @@ import {BrowserRouter as Router, Route, NavLink, Switch} from 'react-router-dom'
 import dotenv from 'dotenv'
 import { fetchUsers } from './actions/userActions';
 import Navbar from './components/Navbar';
+import { useState, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 
-import usersContainer from './containers/usersContainer';
+import usersContainer from './containers/UsersContainer';
 
 dotenv.config()
 
 
-class App extends Component {
+function App() {
+  const [users, setUsers] = useState([])
+  const dispatch = useDispatch()
 
-  
-  componentDidMount() {
-    this.props.fetchUsers()
-  }
+  useEffect(() => {
+    fetch("http://localhost:3000/users")
+      .then(res => res.json())
+      .then(result => setUsers(result))
+      .then(console.log(users))
+  },[])
 
-  render(){
+  useEffect(() => {
+    dispatch({type: "SHOW_USERS", users: users})
+  }, [users])
+
+  // componentDidMount() {
+  //   this.props.fetchUsers()
+  // }
+
+  // render(){
     const Google_id = process.env.REACT_APP_GOOGLE_CLIENT_ID
   return (
+    
     
   <Router>
     <div className="App">
@@ -34,22 +49,23 @@ class App extends Component {
     </Router>
   );
 }
-}
 
-const mapStateToProps = state => {
+
+// const mapStateToProps = state => {
   
-  return {
-    users: state.users
-  }
-}
+//   return {
+//     users: state.users
+//   }
+// }
 
-const mapDispatchToProps = dispatch => {
-  return {
-  fetchUsers: () => dispatch(fetchUsers()),
-  }
-}
+// const mapDispatchToProps = dispatch => {
+//   return {
+//   fetchUsers: () => dispatch(fetchUsers()),
+//   }
+// }
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default App;
+// export default connect(mapStateToProps, mapDispatchToProps)(App);
 
 
 

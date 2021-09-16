@@ -1,23 +1,26 @@
 import React, { Component } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { connect } from 'react-redux';
 
-class usersContainer extends Component {
-    render() {
+function UsersContainer() {
+        let users = useSelector(state => state.users)
         
-        let users = this.props.users.map(e => <div key={e.name}>{e.email}</div>)
+        users = users.map(e => <div key={e.id}>{e.email}</div>)
         return (
             <div>
-                {users}
+                <h1>{users}</h1>
             </div>
         );
-    }
+    
 }
 
-const mapStateToProps = state => {
+// const mapStateToProps = state => {
   
-    return {
-      users: state.users
-    }
-  }
+//     return {
+//       users: state.users
+//     }
+//   }
 
-export default connect(mapStateToProps)(usersContainer);
+
+export default UsersContainer
+// export default connect(mapStateToProps)(usersContainer);

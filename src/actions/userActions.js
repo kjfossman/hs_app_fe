@@ -13,7 +13,6 @@ export const fetchUsers = () => {
 
 
 export const addUser = (data) => {
-    debugger
     return (dispatch) => {
         fetch("http://localhost:3000/users", {
             method: "POST",
