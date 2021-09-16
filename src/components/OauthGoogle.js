@@ -11,19 +11,29 @@ class OauthGoogle extends Component {
       }
 
     render() {
+        
+        if(!this.props.loginStatus[0]){
         return (
             <div>
+               
                  <GoogleLogin
                     clientId={this.props.Google_id}
-                    buttonText="Login"
+                    buttonText="Login or Signup with Google"
                     onSuccess={this.responseGoogle}
                     onFailure={this.responseGoogle}
                     cookiePolicy={'single_host_origin'}
                  />
             </div>
+        
         );
+    }else{
+        return (
+            <div>
+              
+            </div>
+        )
     }
-}
+}}
 
 const mapDispatchToProps = dispatch => {
     return {
@@ -33,4 +43,11 @@ const mapDispatchToProps = dispatch => {
     }
 }
 
-export default connect(null, mapDispatchToProps)(OauthGoogle);
+const mapStateToProps = (state) => {
+    return {
+        loginStatus: state.login
+    }
+         
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(OauthGoogle);

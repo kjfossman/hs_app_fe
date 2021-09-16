@@ -4,6 +4,7 @@ import './index.css';
 import App from './App';
 
 import userReducer from './reducers/userReducer.js'
+import loginReducer from './reducers/loginReducer.js'
 
 import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux';
@@ -14,6 +15,7 @@ const devTools = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_
 
 const rootReducer = combineReducers({
     users: userReducer,
+    login: loginReducer
 })
 
 const store = createStore(rootReducer, compose(applyMiddleware(thunk), devTools))

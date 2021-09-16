@@ -6,8 +6,13 @@ const userReducer = (state = [], action) => {
         case 'SHOW_USERS':
             return action.users
 
-        case 'ADD_USERS':
-            return [action.user, ...state]
+        case 'ADD_USER':
+            if(state.find(obj => obj.id === action.user.id)){
+                return state 
+            }else{
+                return [action.user, ...state]
+            }
+            
 
       default:
         return state;

@@ -29,7 +29,9 @@ export const addUser = (data) => {
         .then(result => result.json())
         .then(responseJSON => {
             dispatch({type: 'ADD_USER', user: responseJSON})
+            dispatch({type: 'LOGIN_USER', user: responseJSON})
         })
     }
 }
+
 

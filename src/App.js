@@ -8,6 +8,8 @@ import { fetchUsers } from './actions/userActions';
 import Navbar from './components/Navbar';
 import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import Logout from './components/Logout';
+import Homepage from './components/Homepage';
 
 import usersContainer from './containers/UsersContainer';
 
@@ -41,8 +43,10 @@ function App() {
   <Router>
     <div className="App">
       <OauthGoogle Google_id={Google_id}/>
+      <Logout/>
       <div>
         <Navbar/>
+        <Route path="/home" component={Homepage}/>
         <Route exact path="/users" component={usersContainer} />
       </div>
     </div>
