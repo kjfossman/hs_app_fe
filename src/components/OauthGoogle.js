@@ -13,7 +13,7 @@ class OauthGoogle extends Component {
         return (
             <div>
                  <GoogleLogin
-                    clientId='809855670413-r308laolsctmfsnpr3nn677h20rmmt5t.apps.googleusercontent.com'
+                    clientId={this.props.Google_Id}
                     buttonText="Login"
                     onSuccess={this.responseGoogle}
                     onFailure={this.responseGoogle}

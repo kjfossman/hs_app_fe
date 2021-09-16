@@ -3,26 +3,29 @@ import React, { Component } from 'react';
 import OauthGoogle from './components/OauthGoogle.js';
 import { connect } from 'react-redux';
 import {BrowserRouter as Router, Route, NavLink, Switch} from 'react-router-dom'
-
+import dotenv from 'dotenv'
 import { fetchUsers } from './actions/userActions';
 import Navbar from './components/Navbar';
 
 import usersContainer from './containers/usersContainer';
 
+dotenv.config()
+
+
 class App extends Component {
 
+  
   componentDidMount() {
     this.props.fetchUsers()
   }
 
-  
-
   render(){
-    
+    const Google_id = process.env.REACT_APP_GOOGLE_CLIENT_ID
   return (
+    
   <Router>
     <div className="App">
-      <OauthGoogle />
+      <OauthGoogle Google_id={Google_id}/>
       <div>
         <Navbar/>
         <Route exact path="/users" component={usersContainer} />
