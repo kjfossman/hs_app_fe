@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 
-function Homepage(props) {
+function Homepage() {
     const [login, users] = useSelector((state) => [
         state.login,
         state.users

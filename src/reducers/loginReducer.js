@@ -1,7 +1,7 @@
 const userReducer = (state = [], action) => {
     switch(action.type) {
         case 'LOGIN_USER':
-            return [action.user.id]
+            return [action.res.user.id]
 
         case 'LOGOUT':
             return []

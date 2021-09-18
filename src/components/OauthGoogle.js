@@ -1,26 +1,52 @@
-import React, { Component } from 'react';
 import GoogleLogin from 'react-google-login'
-import { addUser } from '../actions/userActions';
-import { connect } from 'react-redux';
+import axios from 'axios';
+import { useDispatch, useSelector } from 'react-redux';
+import React from 'react'
 
 
-class OauthGoogle extends Component {
+function OauthGoogle(props){
 
-    responseGoogle = (response) => {
-        this.props.submitUser(response.profileObj)
+    const loginStatus = useSelector(state => state.login)
+
+    const dispatch = useDispatch()
+    const test = () => {
+        dispatch({type: 'ADD_USER'})
+    }
+    
+    
+    const responseGoogle = (response) => {
+        addUser(response.profileObj)
+        test()
       }
 
-    render() {
-        
-        if(!this.props.loginStatus[0]){
+    const addUser = (data) => {
+        let user = {
+            name: data.name,
+            email: data.email,
+        }
+        axios.post('/login', {user}, {
+            withCredentials: true }
+            )
+    //     .then(result => console.log(result))
+    //     .then(responseJSON => {
+    //         dispatch({type: 'ADD_USER', res: responseJSON})
+    //         dispatch({type: 'LOGIN_USER', res: responseJSON})
+    // })
+    }
+
+   
+
+      
+     
+        if(true){
         return (
             <div>
                
                  <GoogleLogin
-                    clientId={this.props.Google_id}
+                    clientId={props.Google_id}
                     buttonText="Login or Signup with Google"
-                    onSuccess={this.responseGoogle}
-                    onFailure={this.responseGoogle}
+                    onSuccess={responseGoogle}
+                    onFailure={responseGoogle}
                     cookiePolicy={'single_host_origin'}
                  />
             </div>
@@ -33,21 +59,23 @@ class OauthGoogle extends Component {
             </div>
         )
     }
-}}
-
-const mapDispatchToProps = dispatch => {
-    return {
-        submitUser: (data) => {
-            dispatch(addUser(data))
-        }
-    }
 }
 
-const mapStateToProps = (state) => {
-    return {
-        loginStatus: state.login
-    }
+// const mapDispatchToProps = dispatch => {
+//     return {
+//         addUser: (data) => {
+//             dispatch(addUser(data))
+//         }
+//     }
+// }
+
+// const mapStateToProps = (state) => {
+//     return {
+//         loginStatus: state.login
+//     }
          
-}
+// }
 
-export default connect(mapStateToProps, mapDispatchToProps)(OauthGoogle);
+// export default connect(mapStateToProps, mapDispatchToProps)(OauthGoogle);
+
+export default OauthGoogle
