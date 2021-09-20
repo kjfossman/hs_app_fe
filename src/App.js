@@ -43,7 +43,6 @@ function App() {
   <Router>
     <div className="App">
       <OauthGoogle Google_id={Google_id}/>
-      <Logout/>
       <div>
         <Navbar/>
         <Route path="/home" component={Homepage}/>

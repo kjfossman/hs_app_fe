@@ -2,6 +2,7 @@ import GoogleLogin from 'react-google-login'
 import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
 import React from 'react'
+import Logout from './Logout';
 
 
 function OauthGoogle(props){
@@ -9,16 +10,7 @@ function OauthGoogle(props){
     const loginStatus = useSelector(state => state.login)
 
     const dispatch = useDispatch()
-    const test = () => {
-        dispatch({type: 'ADD_USER'})
-    }
-    
-    
-    const responseGoogle = (response) => {
-        addUser(response.profileObj)
-        test()
-      }
-
+  
     const addUser = (data) => {
         let user = {
             name: data.name,
@@ -27,21 +19,20 @@ function OauthGoogle(props){
         axios.post('/login', {user}, {
             withCredentials: true }
             )
-    //     .then(result => console.log(result))
-    //     .then(responseJSON => {
-    //         dispatch({type: 'ADD_USER', res: responseJSON})
-    //         dispatch({type: 'LOGIN_USER', res: responseJSON})
-    // })
+        .then(responseJSON => {
+            dispatch({type: 'ADD_USER', res: responseJSON})
+            dispatch({type: 'LOGIN_USER', res: responseJSON})
+        })
     }
 
-   
+    const responseGoogle = (response) => {
+        addUser(response.profileObj)
+      }
 
-      
-     
-        if(true){
+        if(loginStatus[0] === undefined){
+           
         return (
             <div>
-               
                  <GoogleLogin
                     clientId={props.Google_id}
                     buttonText="Login or Signup with Google"
@@ -55,7 +46,7 @@ function OauthGoogle(props){
     }else{
         return (
             <div>
-              
+              <Logout/>
             </div>
         )
     }

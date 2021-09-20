@@ -36,12 +36,22 @@ export const fetchUsers = () => {
 //     }
 // }
 
-export const addUser = (data) => {
-            let user = {
-                name: data.name,
-                email: data.email,
-            }
-            axios.post('/login', {user}, {
-                withCredentials: true
-            })
-        }
+// export const addUser = (data) => {
+//     return (dispatch) => {
+//             let user = {
+//                 name: data.name,
+//                 email: data.email,
+//             }
+//             axios.post('/login', {user}, {
+//                 withCredentials: true
+//             })
+//             .then(responseJSON => {
+//                     dispatch({type: 'ADD_USER', res: responseJSON})
+//                     dispatch({type: 'LOGIN_USER', res: responseJSON})
+//                 })
+//         }
+//     }
+
+
+
+   
