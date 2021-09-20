@@ -1,18 +1,11 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import LoggedIn from './LoggedIn';
 
 function Homepage() {
-    const [login, users] = useSelector((state) => [
-        state.login,
-        state.users
-    ])
-
-    let currentUser = users.find(user => user.id === login[0])
-    
-    
     return (
         <div>
-            {currentUser ? `Welcome ${currentUser.name}` : "Loading"}
+            <LoggedIn/>
         </div>
     );
 }

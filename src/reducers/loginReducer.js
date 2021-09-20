@@ -1,10 +1,10 @@
-const userReducer = (state = [], action) => {
+const userReducer = (state = false, action) => {
     switch(action.type) {
         case 'LOGIN_USER':
-            return [action.res.data.user]
+            return action.res.data.user
 
         case 'LOGOUT':
-            return []
+            return false
 
       default:
         return state;
