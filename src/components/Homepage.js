@@ -4,8 +4,6 @@ import LoggedIn from './LoggedIn';
 
 function Homepage() {
 
-    
-
     return (
         <div>
             <LoggedIn/>
