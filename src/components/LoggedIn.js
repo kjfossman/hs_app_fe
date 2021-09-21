@@ -6,8 +6,7 @@ function LoggedIn() {
         state.login,
         state.users
     ])
-    
-    console.log(login)
+
     return (
         <div>
             {login ? `Welcome ${login.name}` : "Please Log in to View Page"}
@@ -16,3 +15,4 @@ function LoggedIn() {
 }
 
 export default LoggedIn;
+

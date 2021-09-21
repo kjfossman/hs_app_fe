@@ -1,30 +1,24 @@
 import './App.css';
-import React, { Component } from 'react';
 import OauthGoogle from './components/OauthGoogle.js';
-import { connect } from 'react-redux';
 import {BrowserRouter as Router, Route, NavLink, Switch} from 'react-router-dom'
 import dotenv from 'dotenv'
-import { fetchUsers } from './actions/userActions';
 import Navbar from './components/Navbar';
 import { useState, useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import Logout from './components/Logout';
+import { useDispatch } from 'react-redux';
 import Homepage from './components/Homepage';
 
 import usersContainer from './containers/UsersContainer';
 
 dotenv.config()
 
-
 function App() {
   const [users, setUsers] = useState([])
   const dispatch = useDispatch()
 
   useEffect(() => {
-    fetch("http://localhost:3000/users")
+    fetch("/users")
       .then(res => res.json())
       .then(result => setUsers(result))
-      .then(console.log(users))
   },[])
 
   useEffect(() => {

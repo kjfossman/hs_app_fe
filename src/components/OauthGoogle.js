@@ -29,7 +29,7 @@ function OauthGoogle(props){
         addUser(response.profileObj)
       }
 
-        if(loginStatus[0] === undefined){
+        if(loginStatus.name === undefined){
            
         return (
             <div>
@@ -39,6 +39,7 @@ function OauthGoogle(props){
                     onSuccess={responseGoogle}
                     onFailure={responseGoogle}
                     cookiePolicy={'single_host_origin'}
+                    // isSignedIn={true}
                  />
             </div>
         
@@ -46,7 +47,7 @@ function OauthGoogle(props){
     }else{
         return (
             <div>
-              <Logout/>
+              <Logout clientId={props.Google_id}/>
             </div>
         )
     }
