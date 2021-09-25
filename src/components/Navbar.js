@@ -22,6 +22,14 @@ class Navbar extends Component {
                     ><b>Users</b>
                 </NavLink></button> 
 
+                <button><NavLink 
+                    to="/calendar" exact
+                    activeStyle={{
+                        color: 'red'
+                    }}
+                    ><b>Calendar</b>
+                </NavLink></button> 
+
             
             </div>
         );

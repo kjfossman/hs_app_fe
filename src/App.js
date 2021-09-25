@@ -1,4 +1,4 @@
-import './App.css';
+import './App.scss';
 import OauthGoogle from './components/OauthGoogle.js';
 import {BrowserRouter as Router, Route, NavLink, Switch} from 'react-router-dom'
 import dotenv from 'dotenv'
@@ -6,6 +6,7 @@ import Navbar from './components/Navbar';
 import { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import Homepage from './components/Homepage';
+import Calendar from './components/Calendar';
 
 import usersContainer from './containers/UsersContainer';
 
@@ -41,6 +42,7 @@ function App() {
         <Navbar/>
         <Route path="/home" component={Homepage}/>
         <Route exact path="/users" component={usersContainer} />
+        {/* <Route exact path="/calendar" component={Calendar}/> */}
       </div>
     </div>
     </Router>
