@@ -1,32 +1,29 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
+import '../scss/Navbar.scss';
 
 class Navbar extends Component {
     render() {
         return (
             <div>
 
-                <button><NavLink 
+                <button className="btn"><NavLink 
                     to="/home" exact
-                    activeStyle={{
-                        color: 'red'
-                    }}
+                    className="inactive"
+                    activeClassName={ "active" }
+                    // inactiveStyle={{color: "blue"}}
                     ><b>Home</b>
                 </NavLink></button>
 
-                 <button><NavLink 
+                 <button className="btn"><NavLink 
                     to="/users" exact
-                    activeStyle={{
-                        color: 'red'
-                    }}
+                    className="inactive"
                     ><b>Users</b>
                 </NavLink></button> 
 
-                <button><NavLink 
+                <button className="btn"><NavLink 
                     to="/calendar" exact
-                    activeStyle={{
-                        color: 'red'
-                    }}
+                    className="inactive"
                     ><b>Calendar</b>
                 </NavLink></button> 
 

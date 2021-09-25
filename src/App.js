@@ -37,13 +37,16 @@ function App() {
     
   <Router>
     <div className="App">
-      <OauthGoogle Google_id={Google_id}/>
-      <div>
+      <div className="navbar">
         <Navbar/>
         <Route path="/home" component={Homepage}/>
         <Route exact path="/users" component={usersContainer} />
         {/* <Route exact path="/calendar" component={Calendar}/> */}
       </div>
+      <div className="Login">
+          <OauthGoogle Google_id={Google_id}/>
+      </div>
+      
     </div>
     </Router>
   );

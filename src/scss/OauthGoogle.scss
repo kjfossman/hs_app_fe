@@ -1,0 +1,33 @@
+.gLogin{
+    background-color: white;
+    border: red;
+    border-style: solid;
+    font-size: 14px;
+    text-align: right;
+    display: inline-block;
+    position: relative;
+    border-width: thin;
+    
+
+    &:hover {
+        background-color: rgb(86, 219, 86);
+        animation: pulse 5s infinite;
+        cursor: pointer
+        // transform: scale(1.1)
+    }
+}
+
+
+
+
+@keyframes pulse {
+    0%{
+        font-size: 16px;
+      }
+      50% {
+        font-size: 16px;
+      }
+      100% {
+        font-size: 16px;
+      }
+}

@@ -3,7 +3,7 @@ import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
 import React from 'react'
 import Logout from './Logout';
-
+import '../scss/OauthGoogle.scss';
 
 function OauthGoogle(props){
 
@@ -32,9 +32,12 @@ function OauthGoogle(props){
         if(loginStatus.name === undefined){
            
         return (
-            <div>
+            <div className="main">
                  <GoogleLogin
                     clientId={props.Google_id}
+                    render={renderProps => (
+                        <button className="gLogin" onClick={renderProps.onClick}>Login or Signup with Google</button>
+                    )}
                     buttonText="Login or Signup with Google"
                     onSuccess={responseGoogle}
                     onFailure={responseGoogle}
