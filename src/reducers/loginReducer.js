@@ -1,7 +1,8 @@
 const userReducer = (state = false, action) => {
     switch(action.type) {
         case 'LOGIN_USER':
-            return action.res.data.user
+            return {user: action.res.data.user,
+                    profile: action.res.data.profile}
 
         case 'LOGOUT':
             return false

@@ -6,10 +6,10 @@ function LoggedIn() {
         state.login,
         state.users
     ])
-
+    debugger
     return (
         <div>
-            {login ? `Welcome ${login.name}` : "Please Log in to View Page"}
+            {login ? `Welcome ${login.user.name}` : "Please Log in to View Page"}
         </div>
     );
 }
