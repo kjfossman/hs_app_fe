@@ -20,13 +20,11 @@ function OauthGoogle(props){
             withCredentials: true }
             )
         .then(responseJSON => {
-            debugger
             dispatch({type: 'ADD_USER', res: responseJSON})
             dispatch({type: 'LOGIN_USER', res: responseJSON})
         })
     }
 
-    
 
     const responseGoogle = (response) => {
         addUser(response.profileObj)
