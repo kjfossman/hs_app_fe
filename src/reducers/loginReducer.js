@@ -9,6 +9,12 @@ const userReducer = (state = false, action) => {
         case 'LOGOUT':
             return false
 
+        case 'UPDATE_PROFILE':
+            return  {
+                        ...state, 
+                        profile: action.profile
+                    }   
+
       default:
         return state;
     }
