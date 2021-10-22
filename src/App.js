@@ -8,6 +8,7 @@ import { useDispatch } from 'react-redux';
 import Homepage from './components/Homepage';
 
 import usersContainer from './containers/UsersContainer';
+import ExerciseContainer from './components/ExerciseContainer';
 
 dotenv.config()
 
@@ -35,7 +36,7 @@ function App() {
         <Navbar/>
         <Route path="/home" component={Homepage}/>
         <Route exact path="/users" component={usersContainer} />
-        {/* <Route exact path="/calendar" component={Calendar}/> */}
+        <Route exact path="/exercises" component={ExerciseContainer}/>
       </div>
       <div className="Login">
           <OauthGoogle Google_id={Google_id}/>
