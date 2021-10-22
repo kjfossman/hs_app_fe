@@ -14,10 +14,14 @@ function Homepage() {
         setEdit(!edit)
     } 
 
+    console.log(user)
     return (
         
-        <div>
+        <div style={{backgroundColor: user ? `${user.profile.color}` : 'white'}}>
             <LoggedIn/>
+            {/* <div>- "{user.profile.quote}"</div> */}
+
+
             {user && 
                 <button onClick={editProf}>{edit ? "Hide Editor" : "Edit My Profile"}</button>
             }

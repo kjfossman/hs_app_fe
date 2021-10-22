@@ -6,7 +6,6 @@ import Navbar from './components/Navbar';
 import { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import Homepage from './components/Homepage';
-import Calendar from './components/Calendar';
 
 import usersContainer from './containers/UsersContainer';
 

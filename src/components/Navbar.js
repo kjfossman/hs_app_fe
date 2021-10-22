@@ -22,9 +22,9 @@ class Navbar extends Component {
                 </NavLink></button> 
 
                 <button className="btn"><NavLink 
-                    to="/calendar" exact
+                    to="/exercises" exact
                     className="inactive"
-                    ><b>Calendar</b>
+                    ><b>Exercises</b>
                 </NavLink></button> 
 
             
