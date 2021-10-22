@@ -1,6 +1,7 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import Exercise from './Exercise.js'
+import ExerciseForm from './ExerciseForm.js';
 
 function ExerciseContainer(props) {
 
@@ -17,7 +18,8 @@ function ExerciseContainer(props) {
     let exes = exercises.map(e => <Exercise key={e.id} exercise={e}/>)
     return (
         <div>
-            {exes}
+            {exes}<br/>
+            <ExerciseForm/>
         </div>
     );
 }
